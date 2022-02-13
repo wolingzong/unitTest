@@ -38,3 +38,5 @@ jobs:
         with:
           access-token: ${{ secrets.GITHUB_TOKEN }}
         if: always()
+      - name: "Upload coverage to Codecov"
+          uses: codecov/codecov-action@v1
