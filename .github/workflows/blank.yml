@@ -33,14 +33,10 @@ jobs:
       # 使用Maven
       - name: Build with Maven
         run: mvn -B test --file common-utils/pom.xml
-      - uses: codecov/codecov-action@v2
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
-          files: ./coverage1.xml,./coverage2.xml # optional
-          flags: unittests # optional
-          name: codecov-umbrella # optional
-          fail_ci_if_error: true # optional (default = false)
-          verbose: true # optional (default = false)
+      - name: Upload to Codecov
+          env:
+            CODECOV_TOKEN: $
+          run: bash <(curl -s https://codecov.io/bash)
 
 
       # 使用Github Action市场提供的Junit流程来执行单元测试，并且输出报告
