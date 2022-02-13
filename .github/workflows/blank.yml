@@ -40,7 +40,7 @@ jobs:
           access-token: ${{ secrets.GITHUB_TOKEN }}
         if: always()
 
-      - uses: actions/checkout@master
+      - uses: actions/checkout@main
       - uses: codecov/codecov-action@v2
         with:
           token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
